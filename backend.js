@@ -6,7 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    setTimeout(() => {
+        fetch('https://startupmentor.onrender.com')
+            .then(res => res.json());
+    }, 600000);
 });
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
