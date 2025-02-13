@@ -29,7 +29,6 @@ app.listen(3000, "0.0.0.0", () => {
         'Content-Type': 'application/json',
       }
     })
-    .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
   
