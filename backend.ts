@@ -22,14 +22,17 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    fetch('https://startupmentor.onrender.com',
-        {
-            method: 'GET',
-            headers: {
-            'Content-Type': 'application/json',
-            }
-        }
-    )
-	console.log('Server is running on port 3000');
-});
+app.listen(3000, "0.0.0.0", () => {
+    fetch('https://startupmentor.onrender.com', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+  
+    console.log('Server is running on port 3000');
+  });
+  
