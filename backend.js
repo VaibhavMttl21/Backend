@@ -4,10 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)({
+    origin: ["https://startupmentor.onrender.com"]
+}));
 app.get('/', (req, res) => {
     setTimeout(() => {
-        fetch('https://startupmentor.onrender.com')
+        fetch('https://startupmentor.onrender.com', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
             .then(res => res.json());
     }, 600000);
 });
